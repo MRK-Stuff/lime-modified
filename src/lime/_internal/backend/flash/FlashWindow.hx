@@ -602,6 +602,11 @@ class FlashWindow
 		return value;
 	}
 
+	public function setVSync(value:Bool):Bool
+	{
+		return false;
+	}
+
 	public function setFullscreen(value:Bool):Bool
 	{
 		parent.stage.displayState = (value ? FULL_SCREEN_INTERACTIVE : NORMAL);

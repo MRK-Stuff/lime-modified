@@ -1061,6 +1061,11 @@ class HTML5Window
 		return value;
 	}
 
+	public function setVSync(value:Bool):Bool
+	{
+		return false;
+	}
+
 	public function setFullscreen(value:Bool):Bool
 	{
 		if (value)

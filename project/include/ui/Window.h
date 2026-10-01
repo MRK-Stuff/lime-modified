@@ -60,6 +60,7 @@ namespace lime {
 			virtual void SetMouseLock (bool mouseLock) = 0;
 			virtual void SetOpacity (float opacity) = 0;
 			virtual bool SetResizable (bool resizable) = 0;
+			virtual bool SetVSync (bool vsync) { return false; }
 			virtual void SetTextInputEnabled (bool enable) = 0;
 			virtual void SetTextInputRect (Rectangle *rect) = 0;
 			virtual const char* SetTitle (const char* title) = 0;

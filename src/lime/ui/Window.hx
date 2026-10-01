@@ -46,6 +46,13 @@ class Window
 	**/
 	public var frameRate(get, set):Float;
 
+	/**
+	 * Whether vertical-sync (VSync) is enabled for the window.
+	 *
+	 * On native SDL OpenGL windows, this can be changed while the application is running.
+	**/
+	public var vsync(get, set):Bool;
+
 	public var fullscreen(get, set):Bool;
 	public var height(get, set):Int;
 	public var hidden(get, null):Bool;
@@ -136,6 +143,7 @@ class Window
 				"display": {get: p.get_display},
 				"displayMode": {get: p.get_displayMode, set: p.set_displayMode},
 				"frameRate": {get: p.get_frameRate, set: p.set_frameRate},
+				"vsync": {get: p.get_vsync, set: p.set_vsync},
 				"fullscreen": {get: p.get_fullscreen, set: p.set_fullscreen},
 				"height": {get: p.get_height, set: p.set_height},
 				"maxHeight": {get: p.get_maxHeight, set: p.set_maxHeight},
@@ -519,6 +527,28 @@ class Window
 	@:noCompletion private inline function set_frameRate(value:Float):Float
 	{
 		return __backend.setFrameRate(value);
+	}
+
+	@:noCompletion private inline function get_vsync():Bool
+	{
+		return context != null && context.attributes != null && context.attributes.vsync == true;
+	}
+
+	@:noCompletion private inline function set_vsync(value:Bool):Bool
+	{
+		setVSync(value);
+		return get_vsync();
+	}
+
+	/**
+		Changes the V-Sync state at runtime on native SDL OpenGL windows.
+		@return	Whether the backend applied the requested value
+	**/
+	public function setVSync(value:Bool):Bool
+	{
+		if (!__backend.setVSync(value)) return false;
+		if (context != null && context.attributes != null) context.attributes.vsync = value;
+		return true;
 	}
 
 	@:noCompletion private inline function get_fullscreen():Bool

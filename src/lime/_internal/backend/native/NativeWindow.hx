@@ -604,6 +604,18 @@ class NativeWindow
 		return frameRate = value;
 	}
 
+	public function setVSync(value:Bool):Bool
+	{
+		if (handle != null)
+		{
+			#if (!macro && lime_cffi)
+			return NativeCFFI.lime_window_set_vsync(handle, value);
+			#end
+		}
+
+		return false;
+	}
+
 	public function setFullscreen(value:Bool):Bool
 	{
 		if (handle != null)

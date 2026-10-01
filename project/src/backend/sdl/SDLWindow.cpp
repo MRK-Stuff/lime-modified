@@ -1083,6 +1083,53 @@ namespace lime {
 	}
 
 
+	bool SDLWindow::SetVSync (bool vsync) {
+
+		if (!context || !sdlWindow) return false;
+
+		SDL_Window* currentWindow = SDL_GL_GetCurrentWindow ();
+		SDL_GLContext currentContext = SDL_GL_GetCurrentContext ();
+		bool changedContext = currentContext != context;
+
+		if (changedContext && SDL_GL_MakeCurrent (sdlWindow, context) != 0) {
+
+			return false;
+
+		}
+
+		bool success = SDL_GL_SetSwapInterval (vsync ? 1 : 0) == 0;
+
+		if (!success) {
+
+			SDL_LogError (SDL_LOG_CATEGORY_VIDEO, "Failed to set VSync: %s", SDL_GetError ());
+
+		}
+
+		if (changedContext && SDL_GL_MakeCurrent (currentWindow, currentContext) != 0) {
+
+			SDL_LogError (SDL_LOG_CATEGORY_VIDEO, "Failed to restore the previous OpenGL context: %s", SDL_GetError ());
+
+		}
+
+		if (success) {
+
+			if (vsync) {
+
+				flags |= WINDOW_FLAG_VSYNC;
+
+			} else {
+
+				flags &= ~WINDOW_FLAG_VSYNC;
+
+			}
+
+		}
+
+		return success;
+
+	}
+
+
 	void SDLWindow::SetTextInputEnabled (bool enabled) {
 
 		if (enabled) {
