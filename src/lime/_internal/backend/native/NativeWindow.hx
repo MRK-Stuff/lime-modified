@@ -174,7 +174,9 @@ class NativeWindow
 		context.attributes = contextAttributes;
 		parent.context = context;
 
-		setFrameRate(Reflect.hasField(attributes, "frameRate") ? attributes.frameRate : 60);
+		var frameRate = Reflect.hasField(attributes, "frameRate") ? attributes.frameRate : getDisplayMode().refreshRate;
+		if (frameRate <= 0) frameRate = 60;
+		setFrameRate(frameRate);
 		#end
 	}
 

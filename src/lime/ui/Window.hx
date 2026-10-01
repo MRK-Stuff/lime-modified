@@ -39,10 +39,9 @@ class Window
 	#end
 
 	/**
-	 * The current frame rate (measured in frames-per-second) of the window.
-	 *
-	 * On some platforms, a frame rate of 60 or greater may imply vsync, which will
-	 * perform more quickly on displays with a higher refresh rate
+	 * The maximum update rate (measured in frames-per-second) of the window.
+	 * When not explicitly configured, native windows use the display's refresh rate,
+	 * falling back to 60 if it cannot be determined.
 	**/
 	public var frameRate(get, set):Float;
 
