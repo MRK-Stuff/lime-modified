@@ -66,7 +66,7 @@ class IOSHelper
 
 		System.runCommand(workingDirectory, "xcodebuild", archiveCommands);
 
-		var supportedExportMethods = ["adhoc", "development", "enterprise", "appstore", "testflight-internal"];
+		var supportedExportMethods = ["adhoc", "development", "enterprise", "appstore"];
 		var exportMethods = [];
 		for (m in supportedExportMethods)
 		{
