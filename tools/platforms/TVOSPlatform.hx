@@ -252,7 +252,7 @@ class TVOSPlatform extends PlatformTarget
 			case "appletv": "3";
 			default: "3";
 		}
-		context.DEPLOYMENT = project.config.getString("tvos.deployment", "13.6");
+		context.DEPLOYMENT = project.config.getString("tvos.deployment", "9.0");
 
 		if (project.config.getString("tvos.compiler") == "llvm" || project.config.getString("tvos.compiler", "clang") == "clang")
 		{
@@ -261,23 +261,6 @@ class TVOSPlatform extends PlatformTarget
 
 		context.IOS_COMPILER = project.config.getString("tvos.compiler", "clang");
 		context.CPP_BUILD_LIBRARY = project.config.getString("cpp.buildLibrary", "hxcpp");
-
-		var json = Json.parse(File.getContent(Haxelib.getPath(new Haxelib("hxcpp"), true) + "/haxelib.json"));
-
-		var version = Std.string(json.version);
-		var versionSplit = version.split(".");
-
-		while (versionSplit.length > 2)
-			versionSplit.pop();
-
-		if (Std.parseFloat(versionSplit.join(".")) > 3.1)
-		{
-			context.CPP_LIBPREFIX = "lib";
-		}
-		else
-		{
-			context.CPP_LIBPREFIX = "";
-		}
 
 		context.IOS_LINKER_FLAGS = ["-stdlib=libc++"].concat(project.config.getArrayString("tvos.linker-flags"));
 		context.IOS_NON_EXEMPT_ENCRYPTION = project.config.getBool("tvos.non-exempt-encryption", true);
