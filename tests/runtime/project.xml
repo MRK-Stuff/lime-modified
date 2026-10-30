@@ -6,7 +6,7 @@
 
 	<source path="test" />
 
-	<haxelib name="lime" path="../../" />
+	<haxelib name="lime" />
 	<haxelib name="munit" />
 	<haxelib name="mlib" />
 	<haxelib name="hamcrest" />

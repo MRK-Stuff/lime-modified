@@ -65,18 +65,18 @@
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_gamecontroller.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_gesture.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_haptic.h"/>
-        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_winrt.h" if="winrt"/>
-        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_wiz.h" if="wiz"/>
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_winrt.h"/>
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_wiz.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_copying.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_cpuinfo.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_egl.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_endian.h"/>
-        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_iphoneos.h" if="ios || tvos"/>
-        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_macosx.h" if="mac"/>
-        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_minimal.h" unless="windows || winrt || mac || ios || tvos || android || linux || rpi || wiz || pandora || psp"/>
-        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_pandora.h" if="pandora"/>
-        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_psp.h" if="psp"/>
-        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_windows.h" if="windows" unless="winrt"/>
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_iphoneos.h" />
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_macosx.h" />
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_minimal.h"/>
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_pandora.h"/>
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_psp.h"/>
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_windows.h" unless="winrt"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_assert.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_atomic.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_audio.h"/>
